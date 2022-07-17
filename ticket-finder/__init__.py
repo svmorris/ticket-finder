@@ -137,7 +137,7 @@ def scanner():
                     await client.get_channel(channel).send(message)
 
                 asyncio.run_coroutine_threadsafe(send_message_to_specific_channel(
-                        f'<@{event[1]}> New ticket at {event[-1]}bc',
+                        f'<@{event[1]}> New ticket at {event[-1]}',
                         998195920514596967,
                     ),client.loop)
 
@@ -185,6 +185,11 @@ async def on_message(message) -> str:
         res = ""
         for event in watchlist:
             res += f"**{event[0]}**: {event[-1]} ({event[1]})\n"
+
+        # If there weren't any on the watchlist to show
+        if res == "":
+            return await message.channel.send("Nothing to show!")
+
         return await message.channel.send(res)
 
 
