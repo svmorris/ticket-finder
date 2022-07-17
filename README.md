@@ -15,13 +15,19 @@ Please do not use this bot if you are only buying the ticket to re-sell it for a
 
 For the twicket.live website:
 ```
-ticket-finder twicket <event_id> <discord_id>
+ticket-finder twicket <event_id> discord <discord_id> <discord_token>
 ```
 
 **Note:** The `event_id` of a concert can be found at the end of the URL.
 
 **Note 1:** Your `discord_id` can be found by right clicking on your name in any chat. Its usually around 18 decimal numbers.
 
+**Note 2:** You can get a `discord_token` by visiting the discord dev portal and making a bot.
+
+**Note 4:** The `twicket` and `discord` keywords are just there in-case I add options in the future.
+
 <br>
 
-Other websites will be implemented when I need them. 🙂
+## Plans
+
+I mostly develop this bot when I need it, but in the future I plan to add other websites (if they have good concerts) and possibly a better way of notifying you than discord.
