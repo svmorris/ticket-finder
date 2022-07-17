@@ -13,6 +13,10 @@ Please do not use this bot if you are only buying the ticket to re-sell it for a
 
 ## Usage
 
+**Note -1**: Until I finish the `setup.py` program just run `pip install discord`, then `./ticket-finder/__init__.py` :/
+
+
+
 For the twicket.live website:
 ```
 ticket-finder twicket <event_id> discord <discord_id> <discord_token>
@@ -26,7 +30,7 @@ ticket-finder twicket <event_id> discord <discord_id> <discord_token>
 
 **Note 4:** The `twicket` and `discord` keywords are just there in-case I add options in the future.
 
-<br>
+
 
 ## Plans
 
