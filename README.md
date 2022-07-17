@@ -17,5 +17,11 @@ For the twicket.live website:
 ```
 ticket-finder twicket <event_id> <discord_id>
 ```
+
 **Note:** The `event_id` of a concert can be found at the end of the URL.
+
 **Note 1:** Your `discord_id` can be found by right clicking on your name in any chat. Its usually around 18 decimal numbers.
+
+<br>
+
+Other websites will be implemented when I need them. 🙂
