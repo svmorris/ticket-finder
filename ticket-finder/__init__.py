@@ -33,9 +33,17 @@ if token is None:
     sys.exit(-1)
 
 
+async def send_message_to_specific_channel(message: str, channel: int):
+    """ Sends a discord message to a specific channel """
+    await client.get_channel(channel).send(message)
+
+
 def debug_log(message: str):
     """ Send a message into the #logs channel """
-    print(message)
+    asyncio.run_coroutine_threadsafe(send_message_to_specific_channel(
+            message,
+            998219192950075443,
+        ),client.loop)
 
 
 
@@ -103,6 +111,14 @@ def check_twicket(api_url: str) -> bool:
         print(f"Ignoring error: {err}", file=sys.stderr)
         return False
 
+    # If this field does not exist,
+    # then the server sent some sort of
+    # error or the URL is invalid.
+
+    if data.get("responseData") == None:
+        debug_log(f"WARNING: Weird response from: {api_url}")
+        return False
+    
 
     # If there are no tickets available
     if len(data['responseData']) == 0:
@@ -129,12 +145,10 @@ def scanner():
 
         for event in events:
             found: bool = check_twicket(event[3])
-            debug_log(found)
+            print(f"Nothing on {event[2]}", file=sys.stderr)
 
             # If something changed
             if found:
-                async def send_message_to_specific_channel(message: str, channel: int):
-                    await client.get_channel(channel).send(message)
 
                 asyncio.run_coroutine_threadsafe(send_message_to_specific_channel(
                         f'<@{event[1]}> New ticket at {event[-1]}',
