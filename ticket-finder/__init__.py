@@ -26,7 +26,7 @@ Stop watching a website:     !stop <number>
 
 
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.default())
 token = os.getenv('TOKEN')
 if token is None:
     print("No token supplied")
