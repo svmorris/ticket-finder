@@ -145,7 +145,6 @@ def scanner():
 
         for event in events:
             found: bool = check_twicket(event[3])
-            print(f"Nothing on {event[2]}", file=sys.stderr)
 
             # If something changed
             if found:
